@@ -6,6 +6,7 @@ let msgcontainer=document.querySelector(".msgc");
 let msg=document.querySelector(".msg");
 let drew=document.querySelector(".draw");
 let new1btn=document.querySelector(".drew");
+let flag=true;
 
 function disableBoxes(){
     for (let box of boxes){
@@ -37,7 +38,7 @@ boxes.forEach((box) => {
         if(boxes[j].innerHTML!=""){
             i++;
         }
-        if(i===9){
+        if(i===9 && flag){
             draw(); }
 }})
     
@@ -46,6 +47,7 @@ function showWinner(player){
    msg.innerHTML="Winner is "+ player;
    msgcontainer.classList.remove("hide");
    disableBoxes();
+    flag=false;
 }
 function checkWinner(){
     for(pattern of winningCombos){
